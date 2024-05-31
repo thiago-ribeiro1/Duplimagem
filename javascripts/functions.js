@@ -159,21 +159,32 @@ document.addEventListener('DOMContentLoaded', function() {
 		video.addEventListener('mouseenter', function() {
 			video.play();
 		});
+
 		// mouseleave quando o mouse sair da área do vídeo ele é pausado
 		video.addEventListener('mouseleave', function() {
 			video.pause();
 		});
 
 		// Eventos para dispositivos móveis
-		// touchstart quando clicar na área do vídeo ele é executado
+		let touchTimeout;
+
+		// touchstart quando pressionar o touch na área do vídeo por 2 segundos ele é executado
 		video.addEventListener('touchstart', function() {
-			video.play();
+			touchTimeout = setTimeout(function() {
+				video.play();
+			}, 2000); // 2 segundos
 		});
-		// touchend quando clicar novamente na área do vídeo ele é pausado
+
+		// touchend se o touch for liberado pausa o vídeo
 		video.addEventListener('touchend', function() {
+			clearTimeout(touchTimeout);
 			video.pause();
 		});
- 
+
+		video.addEventListener('contextmenu', function(e) {
+			e.preventDefault();  // Previne o menu de contexto
+		});
+
 		// Prevenir comportamento padrão de rolagem ao tocar no vídeo
 		video.addEventListener('touchmove', function(e) {
 			e.preventDefault();
