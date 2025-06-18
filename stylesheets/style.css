@@ -193,7 +193,7 @@ nav#main.affix ul ul.dropdown li { background: #fff; }
 
   .paineis-led-item {
     text-align: center;
-    width: 30%; /* Ajustar conforme necessário */
+    width: 30%; 
   }
 
   .paineis-led-item img {
@@ -206,5 +206,85 @@ nav#main.affix ul ul.dropdown li { background: #fff; }
     /* Estilo adicional para o texto */
   }
 
-  
+    .custom-modal-position {
+      margin-top: 100px; 
+    }
+    
+    #successModal .modal-dialog {
+      width: 550px;
+      max-width: 90%;
+      margin: 100px auto; /* centraliza e afasta do topo */
+    }
+
+    /* Afastar o modal do topo */
+    .modal-pb {
+      margin-top: 60px;
+    }
+    
+    /* Aparência moderna e neutra */
+    .modal-content {
+      border-radius: 8px;
+      border: none;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      background-color: #fff;
+      color: #111;
+    }
+    
+    /* Cabeçalho branco com fonte preta */
+    .modal-header {
+      border-bottom: 1px solid #eee;
+      background-color: #fff;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+    
+    .modal-title {
+      font-weight: 600;
+      color: #111;
+    }
+    
+    .modal-body {
+      font-size: 11px;
+      font-weight: 500;
+      color: #444;
+      text-align: left; /* antes estava center */
+      padding: 20px 24px;
+    }
+    
+    .modal-footer {
+      display: flex;
+      justify-content: flex-end; /* botão vai pro canto direito */
+      border-top: none;
+      padding: 10px 20px 20px;
+    }
+    
+    .modal-footer .btn {
+      background-color: #111;
+      color: white;
+      font-weight: 600;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 4px;
+      padding: 6px 18px;
+      transition: background 0.2s ease;
+    }
+    
+    .modal-footer .btn:hover {
+      background-color: #000;
+    }
+    
+    @media (max-width: 768px) {
+      #successModal .modal-dialog {
+        width: 95%;
+        margin: 60px auto;
+      }
+    
+      .modal-body {
+        padding: 20px;
+      }
+    
+      .modal-footer {
+        padding: 10px 15px 20px;
+      }
+    }
 
