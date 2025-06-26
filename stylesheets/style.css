@@ -210,7 +210,7 @@ nav#main.affix ul ul.dropdown li { background: #fff; }
       margin-top: 100px; 
     }
     
-    #successModal .modal-dialog {
+    .custom-modal .modal-dialog {
       width: 550px;
       max-width: 90%;
       margin: 100px auto; /* centraliza e afasta do topo */
@@ -230,7 +230,6 @@ nav#main.affix ul ul.dropdown li { background: #fff; }
       color: #111;
     }
     
-    /* Cabeçalho branco com fonte preta */
     .modal-header {
       border-bottom: 1px solid #eee;
       background-color: #fff;
@@ -247,13 +246,13 @@ nav#main.affix ul ul.dropdown li { background: #fff; }
       font-size: 11px;
       font-weight: 500;
       color: #444;
-      text-align: left; /* antes estava center */
+      text-align: left; 
       padding: 20px 24px;
     }
     
     .modal-footer {
       display: flex;
-      justify-content: flex-end; /* botão vai pro canto direito */
+      justify-content: flex-end; 
       border-top: none;
       padding: 10px 20px 20px;
     }
@@ -274,7 +273,7 @@ nav#main.affix ul ul.dropdown li { background: #fff; }
     }
     
     @media (max-width: 768px) {
-      #successModal .modal-dialog {
+      .custom-modal .modal-dialog {
         width: 95%;
         margin: 60px auto;
       }
@@ -288,3 +287,6 @@ nav#main.affix ul ul.dropdown li { background: #fff; }
       }
     }
 
+    #message {
+      height: 90px;
+    } 
