@@ -81,11 +81,9 @@ $(function () {
     overlayImage = overlay.find("img");
     overlayIframe = overlay.find("iframe");
 
-    overlayImage.fadeOut(0);
-    overlayIframe.fadeOut(0);
-
-    overlayIframe.attr("src", "");
-    overlayImage.attr("src", "");
+    // Reset: limpa handlers, esconde e zera src
+    overlayImage.stop(true, true).hide().off('load').attr('src', '');
+    overlayIframe.stop(true, true).hide().off('load').attr('src', '');
 
     var url = el.attr("href");
     var videoUrl = el.attr("data-video");
@@ -124,11 +122,18 @@ $(function () {
           overlayIframe.fadeIn(600);
         });
     } else if (!videoType) {
-      overlayImage.attr("src", url).load(function () {
+    overlayImage
+      .one('load', function () {
         overlayImage.fadeIn(600);
-      });
+      })
+      .attr('src', url);
+
+    // se veio do cache, garante o disparo
+    if (overlayImage[0].complete && overlayImage[0].naturalWidth > 0) {
+      overlayImage.trigger('load');
     }
   }
+}
 
   $("body").on("click", ".next", function () {
     curItem = curItem.parent().next().find("a.item");
@@ -154,6 +159,7 @@ $(function () {
     overlayIframe.attr("src", "");
     overlayImage.attr("src", "");
     overlay.fadeOut(300);
+    
   });
 });
 
